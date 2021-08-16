@@ -694,7 +694,7 @@ void loop() {
             int8_t repeat = motion.loopCycle[2] - 1;
             byte frameSize = 20;
             for (byte c = 0; c < abs(motion.period); c++) { //the last two in the row are transition speed and delay
-              transform(motion.dutyAngles + c * frameSize, motion.angleDataRatio, motion.dutyAngles[16 + c * frameSize] / 4.0);
+              transform(motion.dutyAngles + c * frameSize, motion.angleDataRatio, motion.dutyAngles[16 + c * frameSize] / 16.0);
 #ifdef GYRO //if opt out the gyro, the calculation can be really fast
               if (motion.dutyAngles[18 + c * frameSize]) {
                 int triggerAxis = motion.dutyAngles[18 + c * frameSize];
